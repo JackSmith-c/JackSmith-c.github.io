@@ -2,11 +2,12 @@
 layout: single
 title:  "[MyLab]주피터 활용해보기"
 categories: 
-    - 2023-12
+  - Blog
 tags:
-    - mylab
+  - ruby
 toc: true
 toc_sticky: true
+typora-root-url: ../
 ---
 
 
@@ -29,7 +30,6 @@ toc_sticky: true
 #### This is H4 Hedaer
 ##### This is H5 Header
 ###### This is H6 Headr
-
 
 
 
