@@ -1,5 +1,47 @@
 ## Unreleased
 
+
+### Bug Fixes
+
+- Fix copy button going out of range for invalid syntax highlighting blocks.
+
+### Enhancements
+
+- Change the icon of a copy button into a tick for 1.5 seconds on successful copy.
+
+## [4.26.0](https://github.com/mmistakes/minimal-mistakes/releases/tag/4.26.0)
+
+### Bug Fixes
+
+- Fix an unclosed `<p>` tag in `page__hero.html`, near `page.header.actions`.
+- Remove overlay and revert X to hamburger icon when popup disappears. [#3958](https://github.com/mmistakes/minimal-mistakes/pull/3958)
+- Fix SEO title when it contains a vertical bar. [#3094](https://github.com/mmistakes/minimal-mistakes/pull/3094) [#3113](https://github.com/mmistakes/minimal-mistakes/pull/3113)
+- Remove "sticky sidebar" JS as it's now completely based on CSS media queries. [#4245](https://github.com/mmistakes/minimal-mistakes/issues/4245) [#4645](https://github.com/mmistakes/minimal-mistakes/pull/4645)
+
+### Enhancements
+
+- Add support for [Jekyll Paginate V2](https://github.com/sverrirs/jekyll-paginate-v2) 🎉 [#2636](https://github.com/mmistakes/minimal-mistakes/pull/2636)
+- Add "copy to clipboard" button for code blocks 🎉 [#2812](https://github.com/mmistakes/minimal-mistakes/pull/2812)
+- Auto scroll sticky ToC with content. [#3115](https://github.com/mmistakes/minimal-mistakes/pull/3115)
+- Replace "hidden" check in Liquid templates with `where_exp: "item", "item.hidden != true"`.
+- Remove deprecated `page.header.cta_url` setting. [#4821](https://github.com/mmistakes/minimal-mistakes/pull/4821)
+- Allow multiple nav lists in sidebar. [#2843](https://github.com/mmistakes/minimal-mistakes/pull/2843)
+- Add popup parameter to `{% include figure %}` to enable Magnific Popup. [#3119](https://github.com/mmistakes/minimal-mistakes/pull/3119)
+- Add target attribute for navigation link. [#3056](https://github.com/mmistakes/minimal-mistakes/pull/3056)
+- Split schema to a separate include file. [#3085](https://github.com/mmistakes/minimal-mistakes/pull/3085)
+- Cleanup `_includes/seo.html`.
+
+### Documentation & Maintenance
+
+- Rewrite skin previews on `05-configuration.md` in Liquid template.
+- Remove unused classes from `_layouts/single.html`.
+- Migrate npm run scripts to Ruby Rake tasks.
+- Add Rake task `version` for updating all hard-coded version numbers from `package.json` all at once.
+- Merge `categories` and `tags` layout into `_includes/posts-taxonomy.html`.
+- Update Social Sharing links section. [#4066](https://github.com/mmistakes/minimal-mistakes/pull/4066)
+
+## [4.25.1](https://github.com/mmistakes/minimal-mistakes/releases/tag/4.25.1)
+
 ### Bug Fixes
 
 - Fix unlisted YouTube video embeds in documentation/test sites. [#3649](https://github.com/mmistakes/minimal-mistakes/issues/3649)
