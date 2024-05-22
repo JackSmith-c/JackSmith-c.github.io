@@ -1,0 +1,179 @@
+---
+layout: single
+title: '코딩일지(2024-05-20)'
+categories:
+  - Blog
+tags:
+  - python
+  - shell
+toc: true
+toc_sticky: true
+typora-root-url: ../
+---
+
+
+
+
+
+
+
+# 스핑크스를 처음 써보았다.
+
+
+
+
+## 아니 이걸 왜 하게되었냐면,
+
+나는 지난 수요일에 교수님으로부터 과제를 받았다. 교수님께서는 지금까지 공부했던 것을 스핑크스에 올리라고 말씀하셨기 때문이다.
+
+일단 교수님께서 해당 사이트([링크](https://sogongbang.github.io/rx003/technical_reports.html#rx003))를 구축하여 판을 깔아놓으셨다. 나는 여기다가 공동문서에다가 작업했던 내용을 복붙하면 될 것 같다.
+
+이를 위해서는 일단 rx003, ubinos, sphinx_doc_materials 라는 깃 리포지토리를 다운받아와야 했다.
+
+그리고 유비노스라는 생태계에서 다른 깃 작업물들을 설치하고 실행하고 빌드하고, 등등 오만가지를 다 하는게 가능한것 같다.
+
+쨋든 시작!
+
+
+
+## 유비노스를 구축했다.
+
+이 ([링크](https://sonamu.atlassian.net/wiki/spaces/PUBL/pages/77561861/Getting+Started+Guide))에 들어가보니 Getting Started Guide가 있었다.
+
+(사실 예전에 한번깔았던 적이 있었는데, 컴퓨터 포맷하고 날아가서 새로운 마음으로 다시 설치중이다ㅋㅋ)
+
+
+
+### 윈도우에 개발환경에 필요한것들 들여왔다.
+
+필요한 것들의 설치는 이 ([링크](https://sonamu.atlassian.net/wiki/spaces/PUBL/pages/77856990/Setting+Up+the+Development+Environment+on+Windows))에 안내되어 있었다. 아래 7가지를 설치하고 설정해주면 된다.
+
+| program name                   | link(url)                                    |
+| ------------------------------ | -------------------------------------------- |
+| 1. cmake                       | https://cmake.org/                           |
+| 2. git                         | https://git-scm.com/                         |
+| 3. Python                      | https://www.python.org/                      |
+| 4. GNU ARM Embedded Tool chain | https://developer.arm.com/downloads/-/gnu-rm |
+| 5. Msys2                       | https://www.msys2.org/                       |
+| 6. VsCode                      | https://code.visualstudio.com/               |
+| 7. QEMU                        | https://www.qemu.org/                        |
+
+
+
+### 본격적으로 최신 개발환경으로 구축을 했다.
+
+이 ([링크](https://sonamu.atlassian.net/wiki/spaces/PUBL/pages/77561861/Getting+Started+Guide))에 자세히 나와 있어 생략했다.
+
+
+
+
+
+
+
+
+
+
+
+## RX003 홈페이지에 들어가 git 저장소를 다운받았다.
+
+위에서 유비웍스를 다운받았다면, 이걸로 작업에 들어갈 수 있다.
+
+나 같은 경우에는 아래와 같이 경로를 잡아주었다.
+
+```shell
+C:\Users\js\Documents\GitHub\MyWorks\ubiworks
+```
+
+그리고 위 경로에 들어가  `code .` 명령어로 vscode 작업환경을 열었다.
+
+RX003 홈페이지 웹개발을 위해 ubinos 라이브러리리를 받아와야 하는데 이를 위해서는,
+
+`ubiworks/make/liblist.json`의 내용을 다음으로 대체해야 했다.
+
+```json
+[
+    {
+        "name": "sphinx_doc_materials",
+        "url": "git@github.com:sogongbang/sphinx_doc_materials.git",
+        "branch_tag_commit": {"type": "branch", "name": "ubinos-main"},
+        "description": ""
+    },
+    {
+        "name": "rx003",
+        "url": "git@github.com:sogongbang/rx003.git",
+        "branch_tag_commit": {"type": "branch", "name": "ubinos-main"},
+        "description": ""
+    }
+]
+```
+
+
+
+그리고  [ctrl]+[shift]+[b] 를 눌러 명령어 모음에 들어갔다.
+
+`make xmgr` 명령어를 실행했다.
+
+![python_Y09HOKjR9u](/images/2024-05-20-codinglog/python_Y09HOKjR9u.webp)
+
+그랬더니 위와 같은 터미널이 열리게 되었고, 위와 같이 `Hide ubinos default library list` 체크박스에 체크하여 기본 항목들을 제거하고 예외적인 항목들만 설치를 시도했다. 저렇게 세개를 설치하였다. 그리고 `close` 버튼을 눌러 터미널을 닫았다.
+
+그리고 나서 이번에는 [ctrl]+[shift]+[b] 를 눌러 명령어 모음에 다시 들어가서, `make xsel` 명령어를 실행했다.
+
+![python_ajMkswsEN2](/images/2024-05-20-codinglog/python_ajMkswsEN2.webp)
+
+그리고 "rx003_home_html"이라고 써져있는 항목을 select했다.
+
+그랬더니 아래와 같이 터미널에 상태메시지가 뜨더라..
+
+![Code_oNu1GQimvo](/images/2024-05-20-codinglog/Code_oNu1GQimvo.webp)
+
+잘 연결된 듯? 웅웅
+
+그 다음에 [ctrl]+[shift]+[b] 를 눌러 명령어 모음에 다시 들어가서, `make rebuildd`를 눌러 기존 캐시를 삭제하고,(안그러면 이새끼 뒤짐ㅇㅇ)
+
+[ctrl]+[shift]+[b] 를 눌러 명령어 모음에 다시 들어가서, `make xrun`을 눌러 로컬에 배포를 진행했다.
+
+
+
+## 본격적인 웹개발에 착수했다.
+
+내가 건드린 파일은 다음과 같다.(root: ubiworks)
+
+1. 문서 작성용: `./library/rx003/doc/rx003_home/doc/technical_report/technicall_report_007_autonomous_driving_basic_using_ros2.rst`
+
+2. image 저장용: `./library/rx003/doc/rx003_home/doc/_static/image`
+
+1번에서 문서편집을 했다.
+
+![Code_9nV4nN3nV0](/images/2024-05-20-codinglog/Code_9nV4nN3nV0.webp)
+
+그리고 위 문서에 들어갈 이미지들을 2번 디렉토리에 저장했다.
+
+![explorer_UwxskOPnuR](/images/2024-05-20-codinglog/explorer_UwxskOPnuR.webp)
+
+
+
+이제 문서 편집이 다 끝났으면 올려야겠지? 이 ([링크](https://github.com/sogongbang/rx003))에 들어가서, "Open with Github Desktop"버튼을 눌러 git clone을 시도했다.
+
+그리고 거기다가 내가 문서편집한 내용으로 덮어씌워서, 커밋과 푸시를 진행했다.
+
+![brave_S3PlOX7FWo](/images/2024-05-20-codinglog/brave_S3PlOX7FWo.webp)
+
+사이트([링크](https://sogongbang.github.io/rx003/technical_reports.html))에 들어가보니 제대로 배포가 된것 같아 뿌듯했다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
