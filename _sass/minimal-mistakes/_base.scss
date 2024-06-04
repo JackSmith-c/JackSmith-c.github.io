@@ -127,6 +127,9 @@ blockquote {
 /* links */
 
 a {
+  // edited by jacksmith(start)
+  text-decoration: none;
+  // edited by jacksmith(end)
   &:focus {
     @extend %tab-focus;
   }
